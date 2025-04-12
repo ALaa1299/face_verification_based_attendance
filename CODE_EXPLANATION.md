@@ -72,19 +72,38 @@ This application is designed to manage employee records using a Streamlit web in
   - Ensures schema validation and indexing for efficient data management.
 
 ### 9. **camera_handler.py**
-- Manages camera initialization and video feed capture
-- Handles frame processing and image capture
+- Initializes and manages camera/video feed (OpenCV)
+- Handles frame capture and preprocessing
+- Provides real-time video feed to UI
+- Manages camera resolution and settings
+- Implements error handling for camera operations
+- Saves captured frames for processing
 - Integrates with face recognition components
 
 ### 10. **face_recognition_handler.py**
-- Implements face detection and recognition algorithms
-- Handles face encoding and matching
-- Manages the face recognition database
+- Implements face detection using OpenCV and dlib
+- Generates 128-dimension face encodings using face_recognition library
+- Stores and manages face encodings in database
+- Handles face matching with tolerance threshold
+- Implements face database operations:
+  - Add new face encodings
+  - Update existing encodings
+  - Delete encodings
+  - Query matches
+- Optimizes matching performance
 
 ### 11. **face_verification.py**
-- Verifies employee identity through facial recognition
-- Compares live camera feed with stored employee images
-- Provides verification results to the attendance system
+- Implements complete verification workflow:
+  1. Capture live image from camera
+  2. Detect and extract face
+  3. Generate face encoding
+  4. Compare with stored encodings
+  5. Calculate match confidence
+  6. Return verification result
+- Handles edge cases (multiple faces, no faces)
+- Provides verification confidence score
+- Logs verification attempts
+- Integrates with attendance system
 
 ## Security Considerations
 - **Authentication**: Secure login system with session management
