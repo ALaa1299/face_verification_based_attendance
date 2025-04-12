@@ -7,3 +7,4 @@ numpy==1.21.6
 python-dateutil==2.8.2
 pillow==9.0.1
 altair==4.2.0
+python-dotenv==1.0.0
