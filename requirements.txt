@@ -8,5 +8,4 @@ python-dateutil==2.8.2
 pillow==9.0.1
 altair==4.2.0
 python-dotenv==1.0.0
-# System dependencies
 libgl1
