@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+import cv2
 from employee_db import EmployeeDatabase
 
 def show():
@@ -35,8 +35,11 @@ def show():
             with cols[0]:  # Image column
                 if emp.get('image_path'):
                     try:
-                        image = Image.open(emp['image_path'])
-                        st.image(image, width=100)
+                        image = cv2.imread(emp['image_path'])
+                        if image is not None:
+                            st.image(image, channels="BGR", width=100)
+                        else:
+                            st.warning("No image found")
                     except Exception as e:
                         st.error(f"Error loading image: {str(e)}")
                 else:
